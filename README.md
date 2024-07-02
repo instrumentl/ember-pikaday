@@ -11,14 +11,13 @@ ember-pikaday provides a datepicker modifier & components for Ember using the Pi
 
 Prerequisites:
 
-- Ember.js v3.25 or above
-- Node.js v12 or above
+- Ember.js v3.28 or above
 - ember-auto-import 2.0 or above
 
 Optional prerequisites:
 
 - If you use the backward-compatible `<PikadayInput>` or `<PikadayInputless>` components, your app must depend on either `moment` or `moment-timezone` and you should remember to configure your locale and timezone requirements. See [Using Moment.js in Ember Apps & Addons](https://github.com/adopted-ember-addons/ember-moment#using-momentjs-in-ember-apps--addons).
-- But if you only use the new `<input {{pikaday}} />` modifier, `moment` or `moment-timezone` are optional. Pikday itself uses them if they present, but doesn't require them.
+- But if you only use the new `<input {{pikaday}} />` modifier, `moment` or `moment-timezone` are optional. Pikaday itself uses them if they present, but doesn't require them.
 
 Anti-prerequisites:
 
@@ -36,7 +35,7 @@ import 'ember-pikaday/pikaday.css';
 export { default } from 'ember-pikaday/modifiers/pikaday';
 ```
 
-This guarantees that the CSS will load whenever your app uses the `{{pikaday}}` modifier (and the `{{pikday}}` modifier is used internally by all the other provided components, so this covers them too).
+This guarantees that the CSS will load whenever your app uses the `{{pikaday}}` modifier (and the `{{pikaday}}` modifier is used internally by all the other provided components, so this covers them too).
 
 ## Usage
 
@@ -60,7 +59,6 @@ All other named arguments are passed directly to Pikaday, so see [Pikaday's conf
 
 The only behaviors this modifier adds to the stock Pikaday are:
 
-- if you set `minDate` or `maxDate` and that causes `value` to be outside the legal range, we adjust `value` and fire `onSelect` to inform you of the change
 - if you set your `<input>` element's `disabled` attribute we will close Pikaday if it had been open.
 
 ### &lt;PikadayInput&gt; Component
@@ -132,7 +130,7 @@ the maximum selectable year to the current year.
 </label>
 ```
 
-The `readonly` attribute is supported as binding so you can make the input readonly for mobile or other usecases.
+The `readonly` attribute is supported as binding so you can make the input readonly for mobile or other use cases.
 
 ```handlebars
 <label>
@@ -194,7 +192,7 @@ The `maxDate` attribute is supported as a binding so you can set the latest date
 
 #### Return dates in UTC time zone
 
-The date returned by ember-pikaday is in your local time zone due to the JavaScript default behaviour of `new Date()`. This can lead to problems when your application converts the date to UTC. In additive time zones (e.g. +0010) the resulting converted date could be yesterdays date. You can force the component to return a date with the UTC time zone by passing `useUTC=true` to it.
+The date returned by ember-pikaday is in your local time zone due to the JavaScript default behavior of `new Date()`. This can lead to problems when your application converts the date to UTC. In additive time zones (e.g. +0010) the resulting converted date could be yesterdays date. You can force the component to return a date with the UTC time zone by passing `useUTC=true` to it.
 
 ```handlebars
 <label>
@@ -235,34 +233,31 @@ Localizing the datepicker is possible in two steps. To localize the output of th
 app.import('node_modules/moment/locale/de.js');
 ```
 
-To localize the datepicker itself, this is the popup you see after clicking the input, a little more work is necessary. The prefered way to do this is writting a custom initializer to inject a localized `i18n` object into the datepicker component. Naturally you can use your own localized strings instead of the ones provided by Moment.js.
+To localize the datepicker itself, this is the popup you see after clicking the input, a little more work is necessary. The preferred way to do this is to implement a custom component that extends the `PikadayInput` component and customizes the `i18n` attribute. The following example uses the translations provided by Moment.js - naturally you can use your own localized strings instead.
 
 ```js
-// app/initializers/setup-pikaday-i18n.js
+// app/components/pikaday-input.js
 
-import EmberObject from '@ember/object';
-import moment from 'moment';
+import PikadayInput from "ember-pikaday/components/pikaday-input";
+import moment from "moment";
 
-export default {
-  name: 'setup-pikaday-i18n',
-  initialize: function (application) {
-    let i18n = EmberObject.extend({
+export default PikadayInput.extend({
+  init(...args) {
+    this._super(args);
+    this.i18n = {
       previousMonth: 'Vorheriger Monat',
       nextMonth: 'Nächster Monat',
-      months: moment.localeData().months(),
-      weekdays: moment.localeData().weekdays(),
-      weekdaysShort: moment.localeData().weekdaysShort(),
-    });
-
-    application.register('pikaday-i18n:main', i18n, { singleton: true });
-    application.inject('component:pikaday-input', 'i18n', 'pikaday-i18n:main');
+      months: moment.localeData()._months,
+      weekdays: moment.localeData()._weekdays,
+      weekdaysShort: moment.localeData()._weekdaysShort,
+    };
   },
-};
+});
 ```
 
 ## Examples
 
-### Show `ember-pikaday` when clicking on a button:
+### Show `ember-pikaday` when clicking on a button
 
 ```handlebars
 <button {{action 'togglePika'}}>Show Pika</button>
@@ -283,7 +278,7 @@ export default Ember.Controller.extend({
 });
 ```
 
-### Show `ember-pikaday` when hovering over a div:
+### Show `ember-pikaday` when hovering over a div
 
 ```handlebars
 <div

@@ -3,7 +3,6 @@ const { module: Qmodule, test } = require('qunit');
 
 Scenarios.fromDir(__dirname)
   .expand({
-    ember_3_25,
     lts_3_28,
     release,
     beta,
@@ -18,23 +17,12 @@ Scenarios.fromDir(__dirname)
         app = await scenario.prepare();
       });
 
-      test(`yarn test`, async function (assert) {
-        let result = await app.execute('yarn test:ember');
+      test(`pnpm test`, async function (assert) {
+        let result = await app.execute('pnpm run test:ember');
         assert.equal(result.exitCode, 0, result.output);
       });
     });
   });
-
-async function ember_3_25(project) {
-  project.linkDevDependency('ember-cli', {
-    baseDir: __dirname,
-    resolveName: 'ember-cli-3.25',
-  });
-  project.linkDevDependency('ember-source', {
-    baseDir: __dirname,
-    resolveName: 'ember-source-3.25',
-  });
-}
 
 async function lts_3_28(project) {
   project.linkDevDependency('ember-cli', {

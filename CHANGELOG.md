@@ -1,5 +1,81 @@
 # Changelog
 
+## Release (2025-02-05)
+
+ember-pikaday 5.1.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-pikaday`
+  * [#639](https://github.com/adopted-ember-addons/ember-pikaday/pull/639) Include addon-main.cjs in package.json#files ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
+## Release (2024-11-30)
+
+ember-pikaday 5.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-pikaday`
+  * [#634](https://github.com/adopted-ember-addons/ember-pikaday/pull/634) Template Tag support ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### :bug: Bug Fix
+* `ember-pikaday`
+  * [#625](https://github.com/adopted-ember-addons/ember-pikaday/pull/625) Widen @ember/test-helper peerDependency to include v4 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### :house: Internal
+* `ember-pikaday`
+  * [#635](https://github.com/adopted-ember-addons/ember-pikaday/pull/635) Bump dev dependencies ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#633](https://github.com/adopted-ember-addons/ember-pikaday/pull/633) Update 3.28 scenario to explicitly use 3.28 version ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#630](https://github.com/adopted-ember-addons/ember-pikaday/pull/630) Remove unused lint deps in test-app ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#626](https://github.com/adopted-ember-addons/ember-pikaday/pull/626) Sync with addon blueprint ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#624](https://github.com/adopted-ember-addons/ember-pikaday/pull/624) Bump release-plan and update setup ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#623](https://github.com/adopted-ember-addons/ember-pikaday/pull/623) Bump pnpm to v9 ([@SergeAstapov](https://github.com/SergeAstapov))
+  * [#612](https://github.com/adopted-ember-addons/ember-pikaday/pull/612) Resolve release/beta/canary failing test scenarios ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
+## Release (2024-02-06)
+
+ember-pikaday 5.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-pikaday`
+  * [#593](https://github.com/adopted-ember-addons/ember-pikaday/pull/593) fix: Prevent ember-pikaday from automatically updating values to within a min/max date bounds ([@Duder-onomy](https://github.com/Duder-onomy))
+
+#### Committers: 1
+- Greg Larrenaga ([@Duder-onomy](https://github.com/Duder-onomy))
+## Release (2024-01-29)
+
+ember-pikaday 4.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-pikaday`
+  * [#535](https://github.com/adopted-ember-addons/ember-pikaday/pull/535) feat: add new `register` attr to access pikaday instance, moment instance replaceable ([@betocantu93](https://github.com/betocantu93))
+
+#### :bug: Bug Fix
+* `ember-pikaday`
+  * [#569](https://github.com/adopted-ember-addons/ember-pikaday/pull/569) Bug: updated tests ([@MelSumner](https://github.com/MelSumner))
+  * [#540](https://github.com/adopted-ember-addons/ember-pikaday/pull/540) fix(modifier): ensure compatibility with ember-modifier v4 ([@anehx](https://github.com/anehx))
+
+#### :memo: Documentation
+* `ember-pikaday`
+  * [#534](https://github.com/adopted-ember-addons/ember-pikaday/pull/534) fix(docs): simpler localization of datepicker ([@czosel](https://github.com/czosel))
+
+#### :house: Internal
+* `ember-pikaday`
+  * [#580](https://github.com/adopted-ember-addons/ember-pikaday/pull/580) Resolve failing test scenarios ([@MelSumner](https://github.com/MelSumner))
+  * [#578](https://github.com/adopted-ember-addons/ember-pikaday/pull/578) setup release-plan ([@mansona](https://github.com/mansona))
+  * [#576](https://github.com/adopted-ember-addons/ember-pikaday/pull/576) use pnpm ([@mansona](https://github.com/mansona))
+
+#### Committers: 5
+- Alberto Cantú Gómez ([@betocantu93](https://github.com/betocantu93))
+- Chris Manson ([@mansona](https://github.com/mansona))
+- Christian Zosel ([@czosel](https://github.com/czosel))
+- Jonas Metzener ([@anehx](https://github.com/anehx))
+- Melanie Sumner ([@MelSumner](https://github.com/MelSumner))
+
 ## v4.0.0 (2022-02-02)
 
 #### :rocket: Enhancement

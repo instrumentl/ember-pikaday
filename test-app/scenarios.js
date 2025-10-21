@@ -3,8 +3,13 @@ const { module: Qmodule, test } = require('qunit');
 
 Scenarios.fromDir(__dirname)
   .expand({
-    ember_3_25,
     lts_3_28,
+    lts_4_4,
+    lts_4_8,
+    lts_4_12,
+    lts_5_4,
+    lts_5_8,
+    lts_5_12,
     release,
     beta,
     canary,
@@ -18,30 +23,119 @@ Scenarios.fromDir(__dirname)
         app = await scenario.prepare();
       });
 
-      test(`yarn test`, async function (assert) {
-        let result = await app.execute('yarn test:ember');
+      test(`pnpm test`, async function (assert) {
+        let result = await app.execute('pnpm run test:ember');
         assert.equal(result.exitCode, 0, result.output);
       });
     });
   });
 
-async function ember_3_25(project) {
-  project.linkDevDependency('ember-cli', {
-    baseDir: __dirname,
-    resolveName: 'ember-cli-3.25',
-  });
-  project.linkDevDependency('ember-source', {
-    baseDir: __dirname,
-    resolveName: 'ember-source-3.25',
-  });
-}
-
 async function lts_3_28(project) {
   project.linkDevDependency('ember-cli', {
     baseDir: __dirname,
+    resolveName: 'ember-cli-lts-3.28',
   });
   project.linkDevDependency('ember-source', {
     baseDir: __dirname,
+    resolveName: 'ember-source-lts-3.28',
+  });
+  project.linkDevDependency('@ember/test-helpers', {
+    baseDir: __dirname,
+    resolveName: 'ember-test-helpers-2',
+  });
+  project.linkDevDependency('ember-qunit', {
+    baseDir: __dirname,
+    resolveName: 'ember-qunit-5',
+  });
+}
+
+async function lts_4_4(project) {
+  project.linkDevDependency('ember-cli', {
+    baseDir: __dirname,
+    resolveName: 'ember-cli-lts-4.4',
+  });
+  project.linkDevDependency('ember-source', {
+    baseDir: __dirname,
+    resolveName: 'ember-source-lts-4.4',
+  });
+  project.linkDevDependency('@ember/test-helpers', {
+    baseDir: __dirname,
+    resolveName: 'ember-test-helpers-2',
+  });
+  project.linkDevDependency('ember-qunit', {
+    baseDir: __dirname,
+    resolveName: 'ember-qunit-5',
+  });
+}
+
+async function lts_4_8(project) {
+  project.linkDevDependency('ember-cli', {
+    baseDir: __dirname,
+    resolveName: 'ember-cli-lts-4.8',
+  });
+  project.linkDevDependency('ember-source', {
+    baseDir: __dirname,
+    resolveName: 'ember-source-lts-4.8',
+  });
+  project.linkDevDependency('@ember/test-helpers', {
+    baseDir: __dirname,
+    resolveName: 'ember-test-helpers-2',
+  });
+  project.linkDevDependency('ember-qunit', {
+    baseDir: __dirname,
+    resolveName: 'ember-qunit-5',
+  });
+}
+
+async function lts_4_12(project) {
+  project.linkDevDependency('ember-cli', {
+    baseDir: __dirname,
+    resolveName: 'ember-cli-lts-4.12',
+  });
+  project.linkDevDependency('ember-source', {
+    baseDir: __dirname,
+    resolveName: 'ember-source-lts-4.12',
+  });
+  project.linkDevDependency('@ember/test-helpers', {
+    baseDir: __dirname,
+    resolveName: 'ember-test-helpers-2',
+  });
+  project.linkDevDependency('ember-qunit', {
+    baseDir: __dirname,
+    resolveName: 'ember-qunit-5',
+  });
+}
+
+async function lts_5_4(project) {
+  project.linkDevDependency('ember-cli', {
+    baseDir: __dirname,
+    resolveName: 'ember-cli-lts-5.4',
+  });
+  project.linkDevDependency('ember-source', {
+    baseDir: __dirname,
+    resolveName: 'ember-source-lts-5.4',
+  });
+}
+
+async function lts_5_8(project) {
+  project.linkDevDependency('ember-cli', {
+    baseDir: __dirname,
+    resolveName: 'ember-cli-lts-5.8',
+  });
+  project.linkDevDependency('ember-source', {
+    baseDir: __dirname,
+    resolveName: 'ember-source-lts-5.8',
+  });
+}
+
+async function lts_5_12(project) {
+  project.linkDevDependency('ember-cli', {
+    baseDir: __dirname,
+    resolveName: 'ember-cli-lts-5.12',
+  });
+  project.linkDevDependency('ember-source', {
+    baseDir: __dirname,
+    resolveName: 'ember-source-lts-5.12',
   });
 }
 
@@ -71,6 +165,10 @@ async function canary(project) {
   project.linkDevDependency('ember-source', {
     baseDir: __dirname,
     resolveName: 'ember-source-canary',
+  });
+  project.linkDevDependency('ember-cli', {
+    baseDir: __dirname,
+    resolveName: 'ember-cli-lts-5.12',
   });
 }
 

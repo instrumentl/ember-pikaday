@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { tracked } from '@glimmer/tracking';
 
-export default class extends Component {
+export default class PikadayInputlessComponent extends Component {
   @tracked container;
   constructor(owner, args) {
     super(owner, args);
@@ -10,7 +10,7 @@ export default class extends Component {
       (element) => {
         this.container = element;
       },
-      { eager: false }
+      { eager: false },
     );
   }
 }

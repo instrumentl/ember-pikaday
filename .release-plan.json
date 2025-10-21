@@ -1,0 +1,17 @@
+{
+  "solution": {
+    "ember-pikaday": {
+      "impact": "patch",
+      "oldVersion": "5.1.0",
+      "newVersion": "5.1.1",
+      "constraints": [
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :bug: Bug Fix"
+        }
+      ],
+      "pkgJSONPath": "./package.json"
+    }
+  },
+  "description": "## Release (2025-02-05)\n\nember-pikaday 5.1.1 (patch)\n\n#### :bug: Bug Fix\n* `ember-pikaday`\n  * [#639](https://github.com/adopted-ember-addons/ember-pikaday/pull/639) Include addon-main.cjs in package.json#files ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### Committers: 1\n- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))\n"
+}
